@@ -3,6 +3,6 @@ jdk:
   - oraclejdk8
 # command to run tests
 script:
- - coverage run -m finalProject_sstTinker_constants.java finalProject_sttTinker_testRunner.java
+ - coverage run -m java /home/travis/build/ssw-695-spring-2021-group-afjk/finalProject_sstTinker_constants /home/travis/build/ssw-695-spring-2021-group-afjk/finalProject_sttTinker_testRunner
 after_success:
  - bash <(curl -s https://codecov.io/bash)
