@@ -1,6 +1,8 @@
 language: java
 jdk:
   - oraclejdk8
-script: java /home/travis/build/ssw-695-spring-2021-group-afjk/filename.java
+# command to run tests
+script:
+ - coverage run -m finalProject_sstTinker_constants finalProject_sttTinker_testRunner
 after_success:
  - bash <(curl -s https://codecov.io/bash)
