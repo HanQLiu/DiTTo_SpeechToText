@@ -8,10 +8,10 @@
 	<!-- Project settings -->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.ssw-695-spring-2021-group-afhk</groupId>
-	<artifactId>pcg-java-10</artifactId>
+	<artifactId>DiTTo_SpeechToText</artifactId>
 	<version>1.0.1</version>
 
-	<name>Pcg Random Generator Java Edition</name>
+	<name>DiTTo_SpeechToText</name>
 	<description>A high quality fast random number generator</description>
 	<url>https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_SpeechToText</url>
 	<scm>
@@ -23,7 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<javac.target>10</javac.target>
 		<bintrayRepository>maven</bintrayRepository>
-		<bintrayPackage>pcg-java-10</bintrayPackage>
+		<bintrayPackage>DiTTo_SpeechToText</bintrayPackage>
 	</properties>
 
 	<licenses>
