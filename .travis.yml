@@ -4,5 +4,6 @@ jdk:
 script:
  - mvn clean package
  - mvn cobertura:cobertura
+ - coverage run finalProject_sttTinker_testRunner.java
 after_success:
   - bash <(curl -s https://codecov.io/bash)
