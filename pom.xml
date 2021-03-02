@@ -1,80 +1,123 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!--  deploy pom -->
+
+	<!-- Project settings -->
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.ssw-695-spring-2021-group-afhk</groupId>
+	<artifactId>pcg-java-10</artifactId>
+	<version>1.0.1</version>
 
-	<groupId>io.github.joaomlneto</groupId>
-	<artifactId>DiTTo_SpeechToText</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<name>Pcg Random Generator Java Edition</name>
+	<description>A high quality fast random number generator</description>
+	<url>https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_SpeechToText</url>
+	<scm>
+		<url>https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_SpeechToText</url>
+		<connection>https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_SpeechToText.git</connection>
+	</scm>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<javac.target>10</javac.target>
+		<bintrayRepository>maven</bintrayRepository>
+		<bintrayPackage>pcg-java-10</bintrayPackage>
+	</properties>
 
-	<name>travis-ci-tutorial-java</name>
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
+	<developers>
+		<developer>
+			<name>afhk</name>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>Europe/Berlin</timezone>
+		</developer>
+	</developers>
+
+	<!-- JUnit 5 -->
 	<dependencies>
-
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.3.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.3.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.3.0</version>
+				<version>3.8.0</version>
 				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<finalName>travis-ci-tutorial</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<archive>
-						<manifest>
-							<mainClass>io.github.joaomlneto.travis_ci_tutorial_java.SimpleCalculator</mainClass>
-						</manifest>
-					</archive>
+					<compilerVersion>10</compilerVersion>
+					<source>${javac.target}</source>
+					<target>${javac.target}</target>
+					<excludes>
+						<!-- -->
+						<exclude>**/doNotUse/**/*</exclude>
+						<exclude>**/statBenchmark/**/*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<excludePackageNames>com.github.ssw-695-spring-2021-group-afhk.DiTTo_SpeechToText.doNotUse:com.github.ssw-695-spring-2021-group-afhk.statBenchmark</excludePackageNames>
 				</configuration>
 				<executions>
 					<execution>
-						<id>build-jar-with-dependencies</id>
-						<phase>package</phase>
+						<id>attach-javadocs</id>
 						<goals>
-							<goal>single</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Environment Settings -->
+	<distributionManagement>
+		<repository>
+			<id>bintray-ssw-695-spring-2021-group-afhk-maven</id>
+			<name>ssw-695-spring-2021-group-afhk-maven</name>
+			<url>https://api.bintray.com/maven/ssw-695-spring-2021-group-afhk/${bintrayRepository}//${bintrayPackage}/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
