@@ -1,8 +1,10 @@
 language: java
 jdk:
-  - oraclejdk11
-# command to run tests
+  - openjdk7
+  - openjdk8
+  - openjdk11
 script:
- - coverage run -m java /home/travis/build/ssw-695-spring-2021-group-afjk/sttTinker.java
+ - mvn clean package
+ - mvn cobertura:cobertura
 after_success:
  - bash <(curl -s https://codecov.io/bash)
