@@ -5,4 +5,5 @@ script:
  - mvn clean package
  - mvn cobertura:cobertura
 after_success:
- - bash <(curl -s https://codecov.io/bash) -f blob/main/pom.xml
+ - bash <(curl -s https://codecov.io/bash) -f 
+ blob/main/pom.xml
