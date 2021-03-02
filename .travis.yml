@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk8
+  - oraclejdk11
 # command to run tests
 script:
  - coverage run -m java /home/travis/build/ssw-695-spring-2021-group-afjk/sttTinker.java
