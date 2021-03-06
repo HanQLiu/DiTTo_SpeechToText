@@ -1,5 +1,7 @@
 package Assignments.finalProject_WastsonImplementation_SpeechToText;
 
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,10 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class sttDataManager {
-	static Logger Log = Logger.getLogger(sttDataManager.class.toString());
+	public static final org.slf4j.Logger LOG = LoggerFactory.getLogger(sttDataManager.class);
 
 	public static class UnavailableDataObjectException extends Exception {
 
@@ -57,7 +58,7 @@ public class sttDataManager {
 					}
 				} else throw new sttDataManager.UnavailableDataObjectException("Database unavailable.");
 			} catch(SQLException | sttDataManager.UnavailableDataObjectException ex) {
-				Log.info(ex.getClass().getName() + ex.getMessage());
+				LOG.info(ex.getClass().getName() + ex.getMessage());
 				printSQLException((SQLException) ex);
 			}
 
@@ -85,7 +86,7 @@ public class sttDataManager {
 			try {
 				postgresqlConnection.close();
 			} catch(SQLException ex) {
-				Log.info(ex.getClass().getName() + ex.getMessage());
+				LOG.info(ex.getClass().getName() + ex.getMessage());
 				printSQLException(ex);
 			}
 		}
@@ -97,7 +98,7 @@ public class sttDataManager {
 				try {
 					recordMap.put(name, resultSetAtCurrentRecord.getString(name));
 				} catch(SQLException se) {
-					Log.info(se.getClass().getName() + se.getMessage());
+					LOG.info(se.getClass().getName() + se.getMessage());
 					printSQLException(se);
 				}
 			}
@@ -116,7 +117,7 @@ public class sttDataManager {
 				postgresqlConnection = DriverManager.getConnection(finalProject_sstTinker_constants.POSTGRESQL_HOST, props);
 				isSuccess = true;
 			} catch(SQLException ex) {
-				Log.info(ex.getClass().getName() + ex.getMessage());
+				LOG.info(ex.getClass().getName() + ex.getMessage());
 				printSQLException(ex);
 			}
 			return isSuccess;
@@ -134,7 +135,7 @@ public class sttDataManager {
 					columnNamesList.add(tableResultSetMetaData.getColumnName(i));
 				}
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 		}
@@ -149,10 +150,10 @@ public class sttDataManager {
 
 				Statement statement = postgresqlConnection.createStatement();
 				isSuccessful = statement.execute(command);
-				Log.info("result of query is " + isSuccessful.toString());
+				LOG.info("result of query is " + isSuccessful.toString());
 				statement.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 			return isSuccessful;
@@ -171,7 +172,7 @@ public class sttDataManager {
 				}
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
@@ -189,7 +190,7 @@ public class sttDataManager {
 				prepStat.executeQuery();
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
@@ -204,7 +205,7 @@ public class sttDataManager {
 				prepStat.executeQuery();
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
@@ -246,7 +247,7 @@ public class sttDataManager {
 				}
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 			return definition;
@@ -266,7 +267,7 @@ public class sttDataManager {
 				}
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
@@ -286,7 +287,7 @@ public class sttDataManager {
 				}
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
@@ -306,7 +307,7 @@ public class sttDataManager {
 				}
 				prepStat.close();
 			} catch(SQLException se) {
-				Log.info(se.getClass().getName() + se.getMessage());
+				LOG.info(se.getClass().getName() + se.getMessage());
 				printSQLException(se);
 			}
 
