@@ -3,7 +3,6 @@ package Assignments.finalProject_WastsonImplementation_SpeechToText;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -18,9 +17,11 @@ import com.ibm.watson.speech_to_text.v1.model.RecognizeWithWebsocketsOptions;
 import com.ibm.watson.speech_to_text.v1.model.SpeechRecognitionResult;
 import com.ibm.watson.speech_to_text.v1.model.SpeechRecognitionResults;
 import com.ibm.watson.speech_to_text.v1.websocket.BaseRecognizeCallback;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class streamingStt_Tinker {
-	public static Logger Log = Logger.getLogger(streamingStt_Tinker.class.toString());
+	public static final Logger LOG = LoggerFactory.getLogger(streamingStt_Tinker.class);
 
 	public static Authenticator sttAuthenticator;
 
@@ -78,7 +79,7 @@ public class streamingStt_Tinker {
 					.build();
 
 			// get results
-			Log.info("Begin gathering results.");
+			LOG.info("Begin gathering results.");
 			sttService.recognizeUsingWebSocket(recognizeOptions,
 					new BaseRecognizeCallback() {
 						@Override
@@ -99,11 +100,11 @@ public class streamingStt_Tinker {
 			line.close();
 
 			// print transcript
-			Log.info("Begin transcription");
+			LOG.info("Begin transcription");
 			getTranscript(transcriptList);
 
 		} catch (Exception ex) {
-			Log.info(ex.getClass().getName() + ex.getMessage());
+			LOG.info(ex.getClass().getName() + ex.getMessage());
 			printException(ex);
 		}
 	}
