@@ -8,6 +8,14 @@ public class finalProject_sstTinker_constants {
 
 	//STT parameters
 	public static final String SST_Model = "en-US_BroadbandModel";
+	
+	// Oxford Credentials
+	public static final String OXFORD_API_URL = "https://od-api.oxforddictionaries.com:443/api/v2/entries/";
+	public static final String OXFORD_API_LANGUAGE = "en-gb";
+	public static final String OXFORD_API_FIELDS = "definitions";
+	public static final String OXFORD_API_STRICTMATCH = "false";
+	public static final String OXFOD_API_ID = ""; //@TODO Get API ID
+	public static final String OXFORD_API_KEY = ""; //@TODO Get API Key
 
 	// PostGreSQL properties
 	public static final String POSTGRESQL_HOST = "insert host";
