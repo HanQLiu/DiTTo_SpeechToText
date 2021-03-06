@@ -1,6 +1,5 @@
 package Assignments.finalProject_WastsonImplementation_SpeechToText;
 
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,9 +12,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import org.slf4j.LoggerFactory;
 
 public class sttGUI extends Application {
-	public static Logger Log = Logger.getLogger(sttGUI.class.toString());
+	public static final org.slf4j.Logger LOG = LoggerFactory.getLogger(sttGUI.class);
 
 	public static Button onClick(String word) {
 
@@ -101,7 +101,6 @@ public class sttGUI extends Application {
 			//String[] wordsList = streamingStt_Tinker.getText(); //get transcript from stream
 
 			for (String word: wordsList) {
-				//@TODO Evaluate this alternative implementation to .setOnAction on line 101
 				if (rowIndex < finalProject_sstTinker_constants.MAX_LINE_LENGTH) {
 					rowIndex++;
 				} else {
@@ -120,7 +119,7 @@ public class sttGUI extends Application {
 			//@TODO add logic to remove grid pane and create a new one after a certain interval of time
 
 		} catch(Exception e) {
-			Log.info(e.getClass().getName() + e.getMessage());
+			LOG.info(e.getClass().getName() + e.getMessage());
 			sttTinker.printException(e);
 		}
 	}
