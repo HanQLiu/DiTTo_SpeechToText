@@ -2,20 +2,20 @@ package Assignments.finalProject_WastsonImplementation_SpeechToText;
 
 public class finalProject_sstTinker_constants {
 	// Credentials
-	public static final String SPEECH_TO_TEXT_PASSWORD = "B5zgcNw0ZgBlhVbAbqdHfWF6Zv_Q1vQmeA0XWduhSIiU";
-	public static final String SPEECH_TO_TEXT_URL = "https://api.us-east.speech-to-text.watson.cloud.ibm.com/instances/547300a1-a7e2-4797-a569-2a6f951f006d";
-	public static final String STT_TEST_FILE = "C:\\Users\\awingate\\CS501Spring2021\\src\\main\\java\\Assignments\\finalProject_WastsonImplementation_SpeechToText\\mTeamsVidTest.mp3";
+	public static final String SPEECH_TO_TEXT_PASSWORD = "insert API key";
+	public static final String SPEECH_TO_TEXT_URL = "insert host";
+	public static final String STT_TEST_FILE = "insert stt test file absolute path";
 
 	//STT parameters
 	public static final String SST_Model = "en-US_BroadbandModel";
 
 	// PostGreSQL properties
-	public static final String POSTGRESQL_HOST = "0a25e7d7-1610-4e37-a6b3-71f4b3281b0b.2adb0220806343e3ae11df79c89b377f.databases.appdomain.cloud";
+	public static final String POSTGRESQL_HOST = "insert host";
 	public static final String POSTGRESQL_USERNAME = "admin"; // credentials from cloud.ibm.com
-	public static final String POSTGRESQL_PASSWORD = "CzT8cdvJtSn2uh"; //credentials from cloud.ibm.com
-	public static final String POSTGRESQL_DATABASE_NAME = "ibmclouddb"; // Database
+	public static final String POSTGRESQL_PASSWORD = "insert db password"; //credentials from cloud.ibm.com
+	public static final String POSTGRESQL_DATABASE_NAME = "insert db name"; // Database
 	public static final String POSTGRESQL_TABLE_NAME = "dittoDictonary"; // Database
-	public static final String POSTGRESQL_PORT = "32324"; // Database
+	public static final String POSTGRESQL_PORT = "insert port"; // Database
 	public static final String POSTGRESQL_SSLMODE = "verify-full"; // Database
 
 	// PostGreSQL Properties Arguments
@@ -48,5 +48,3 @@ public class finalProject_sstTinker_constants {
 	// GUI parameters
 	public static final int MAX_LINE_LENGTH = 20;
 }
-
-
